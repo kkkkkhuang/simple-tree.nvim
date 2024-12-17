@@ -1,0 +1,77 @@
+*simple-tree.txt*                           *simple-tree* *simple-tree.nvim*
+
+
+a reference to create our own opt-in default simple-tree configurations.
+
+    Author    :    KKHuang <https://github.com/kkkkkHuang>
+    Homepage  :    https://github.com/kkkkkHuang/simple-tree.nvim
+
+
+
+
+==============================================================================
+                                                             *simple-tree-install*
+
+1. Install ~
+
+With `lazy.nvim`:
+>
+{'kkkkkHuang/simple-tree.nvim', opts = {}}
+<
+
+With `packer.nvim`:
+>
+  require('packer').use { 'kkkkkHuang/simple-tree.nvim' }
+<
+With `paq-nvim`:
+>
+  require("paq") { 'kkkkkHuang/simple-tree.nvim' }
+<
+With `vim-plug`:
+>
+  Plug 'kkkkkHuang/simple-tree.nvim'
+<
+With `Vundle.vim`:
+>
+  Plugin 'kkkkkHuang/simple-tree.nvim'
+<
+With `vim-pathogen`:
+>
+  cd ~/.vim/bundle && \
+  git clone https://github.com/kkkkkHuang/simple-tree.nvim
+<
+With `dein.vim`:
+>
+  call dein#add('kkkkkHuang/simple-tree.nvim')
+<
+
+==============================================================================
+                                                           *simple-tree-configure*
+
+2. Configure ~
+
+Setup:
+>
+require("simpple-tree").setup {
+  -- width of the tree window
+  width=30,
+
+  -- Enable or disable auto focus on the current file
+  auto_focus_file=true,
+
+  -- You can customize the file icons
+  file_icons={
+    ['lua']="",
+    ['py']="",
+    -- ...
+    ['default']=''
+  },
+
+  -- You can customize the folder icon
+  folder_icons='',
+  folder_open_icons='',
+
+}
+<
+
+ 
