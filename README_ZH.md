@@ -1,6 +1,6 @@
 
 # simple-tree.nvim 
-> [英文](./README_ZH.md) | 中文 
+> [英文](./README.md) | 中文 
 
 <div align="center">
   <h3>一个用于 <code>Neovim</code> 的目录树插件。</h3>

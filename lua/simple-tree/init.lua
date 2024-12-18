@@ -499,24 +499,24 @@ local function toggle_tree()
       vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', key, '<Nop>', { noremap = true, silent = true })
       vim.api.nvim_buf_set_keymap(tree_bufnr, 'v', key, '<Nop>', { noremap = true, silent = true })
     end
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<CR>', ':lua require("tree").open_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<CR>', ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'o', ':lua require("tree").open_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'o', ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'd', ':lua require("tree").delete_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'd', ':lua require("simple-tree").delete_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'a', ':lua require("tree").create_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'a', ':lua require("simple-tree").create_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'r', ':lua require("tree").rename_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'r', ':lua require("simple-tree").rename_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
     vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<2-LeftMouse>',
-      ':lua require("tree").open_file_or_folder_under_cursor()<CR>',
+      ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'c', ':lua require("tree").copy_file_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'c', ':lua require("simple-tree").copy_file_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'p', ':lua require("tree").paste_file_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'p', ':lua require("simple-tree").paste_file_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'm', ':lua require("tree").move_file_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'm', ':lua require("simple-tree").move_file_under_cursor()<CR>',
       { noremap = true, silent = true })
   end
 end
