@@ -21,9 +21,9 @@ local separator = (isWindows == 1 and '\\' or '/')
 local file_icons = {
   ["lua"] = "",
   ["json"] = "",
-  ['xml']='',
-  ['yaml']='',
-  ['yml']='',
+  ['xml'] = '',
+  ['yaml'] = '',
+  ['yml'] = '',
   ["txt"] = "",
   ["md"] = "",
   ["py"] = "",
@@ -31,20 +31,20 @@ local file_icons = {
   ["ts"] = "",
   ["tsx"] = "",
   ["jsx"] = "",
-  ['vue']='',
-  ['svelte']='',
+  ['vue'] = '',
+  ['svelte'] = '',
   ["html"] = "",
   ["css"] = "",
   ['less'] = '',
   ['sass'] = '',
   ['stylus'] = '',
-  ['tailwind']='󱏿',
+  ['tailwind'] = '󱏿',
   ['prisma'] = '',
   ['java'] = '',
   ['c'] = '',
   ['c#'] = '',
   ['cpp'] = '',
-  ['sh']='',
+  ['sh'] = '',
   ['rust'] = '',
   ['ruby'] = '',
   ['php'] = '',
@@ -52,19 +52,19 @@ local file_icons = {
   ["png"] = "",
   ["gif"] = "",
   ["ico"] = "",
-  ['svg']='',
+  ['svg'] = '',
   ["pdf"] = "",
-  ['doc']='',
-  ['docx']='',
-  ['xls']='',
-  ['xlsx']='',
-  ['ppt']='',
-  ['pptx']='',
+  ['doc'] = '',
+  ['docx'] = '',
+  ['xls'] = '',
+  ['xlsx'] = '',
+  ['ppt'] = '',
+  ['pptx'] = '',
   ["zip"] = "",
   ["gitignore"] = "",
-  ['LICENSE']='󱕴',
-  ['mp4']='',
-  ['mp3']='',
+  ['LICENSE'] = '󱕴',
+  ['mp4'] = '',
+  ['mp3'] = '',
   ["default"] = ""
 }
 local folder_icon = ''
@@ -84,7 +84,7 @@ local tree_bufnr = nil
 local cur_line = 1
 local is_tree_open = false
 local is_first_open = false
-local width=30
+local width = 30
 local copied_file_path = nil
 local moved_file_path = nil
 local function getValueByIndexPath(tree, indexPath)
@@ -465,7 +465,7 @@ local function toggle_tree()
     vim.cmd('wincmd H')
     vim.cmd('vsplit')
     vim.cmd('wincmd h')
-    vim.cmd('vertical resize '..width)
+    vim.cmd('vertical resize ' .. width)
     tree_bufnr = vim.api.nvim_create_buf(false, true)
     if not is_first_open then
       local cwd = vim.fn.expand('%:p:h')
@@ -481,7 +481,7 @@ local function toggle_tree()
     render_tree()
     set_cursor_to_tree_line(1)
     is_tree_open = true
-    vim.api.nvim_buf_set_option(tree_bufnr, 'filetype', 'NvimTree')
+    vim.api.nvim_buf_set_option(tree_bufnr, 'filetype', 'simple-tree')
     vim.api.nvim_win_set_option(0, 'wrap', false)
     vim.api.nvim_win_set_option(0, 'wrapscan', false)
     vim.api.nvim_win_set_option(0, 'cursorline', true)
@@ -499,15 +499,20 @@ local function toggle_tree()
       vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', key, '<Nop>', { noremap = true, silent = true })
       vim.api.nvim_buf_set_keymap(tree_bufnr, 'v', key, '<Nop>', { noremap = true, silent = true })
     end
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<CR>', ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<CR>',
+      ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'o', ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'o',
+      ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'd', ':lua require("simple-tree").delete_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'd',
+      ':lua require("simple-tree").delete_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'a', ':lua require("simple-tree").create_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'a',
+      ':lua require("simple-tree").create_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'r', ':lua require("simple-tree").rename_file_or_folder_under_cursor()<CR>',
+    vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', 'r',
+      ':lua require("simple-tree").rename_file_or_folder_under_cursor()<CR>',
       { noremap = true, silent = true })
     vim.api.nvim_buf_set_keymap(tree_bufnr, 'n', '<2-LeftMouse>',
       ':lua require("simple-tree").open_file_or_folder_under_cursor()<CR>',
@@ -528,7 +533,7 @@ function M.setup(user_conf)
   if user_conf.folder_icon and type(user_conf.folder_icon) == "string" then
     folder_icon = user_conf.folder_icon
   end
-   if user_conf.width and type(user_conf.width) == "number" then
+  if user_conf.width and type(user_conf.width) == "number" then
     width = user_conf.width
   end
   if user_conf.folder_open_icon and type(user_conf.folder_open_icon) == "string" then

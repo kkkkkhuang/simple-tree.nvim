@@ -13,9 +13,9 @@
 
 ## Requirements
 
-- This plugin only works in Neovim 0.5 or newer.
+- Neovim 0.8+
 
-- [nerd font](https://www.nerdfonts.com/) is optional and used to display file icons.If you want it, the font of your terminal emulator must be configured for it.
+- A patched font (see [nerd font](https://www.nerdfonts.com/))
 
 ## Install
 
@@ -29,12 +29,6 @@ With [`packer.nvim`](https://github.com/wbthomason/packer.nvim):
 
 ```lua
 require('packer').use { 'kkkkkHuang/simple-tree.nvim' }
-```
-
-With [`paq-nvim`](https://github.com/savq/paq-nvim):
-
-```lua
-require("paq") { 'kkkkkHuang/simple-tree.nvim' }
 ```
 
 With [`vim-plug`](https://github.com/junegunn/vim-plug):
@@ -107,3 +101,52 @@ require("simple-tree").setup {
 
 }
 ```
+
+## Other plugins setting
+
+- [`bufferline.nvim`](https://github.com/akinsho/bufferline.nvim)
+
+set sidebar offsets
+
+```lua
+require("bufferline").setup({
+  options = {
+    -- ...
+    offsets = {
+      {
+        filetype = "simple-tree",
+        text = "File Explorer",
+        separator = true,
+      },
+      -- ...
+    }
+  }
+})
+```
+
+When you use `bufferline.nvim` to close the buffer, it is possible that the entire `simple-tree` plugin will occupy the current buffer. You can change the configuration of `bufferline.nvim` like this to avoid that
+
+```lua
+require("bufferline").setup({
+  options = {
+    -- ...
+    -- change the close command
+    close_command = function(bufnum)
+    	if bufnum == vim.fn.bufnr() then
+        vim.cmd("bp")
+    	end
+    	vim.api.nvim_buf_delete(bufnum, { force = true })
+    end,
+
+    right_mouse_command = function(bufnum)
+    	if bufnum == vim.fn.bufnr() then
+        vim.cmd("bp")
+    	end
+    	vim.api.nvim_buf_delete(bufnum, { force = true })
+    end,
+    -- ...
+  }
+})
+```
+
+Similarly, if this happens with the command `:bd` to close buffer, you can also use the command `:bp | bd #` instead,This command means to switch to the buffer before the current window and delete the buffer of the last edited file
