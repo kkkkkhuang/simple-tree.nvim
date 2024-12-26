@@ -63,6 +63,12 @@ call dein#add('kkkkkHuang/simple-tree.nvim')
 
 `:TreeToggle` Open or close the tree
 
+You can also bind it to a shortcut key, such as `<Leader>b`
+
+```lua
+vim.api.nvim_set_keymap('n', '<Leader>b', '<Cmd>TreeToggle<CR>', { noremap = true })
+```
+
 ### Keymaps
 
 | key         | description                                                   |
@@ -98,6 +104,9 @@ require("simple-tree").setup {
   -- You can customize the folder icon
   folder_icons='',
   folder_open_icons='',
+
+  -- show git status
+  enable_git_status=true
 
 }
 ```

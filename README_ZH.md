@@ -13,7 +13,7 @@
 
 ## 要求
 
-- 此插件仅在 Neovim 0.5 或更高版本中工作。
+- 此插件仅在 Neovim 0.7 或更高版本中工作。
 - [nerd 字体](https://www.nerdfonts.com/) 是可选的，用于显示文件图标。如果你需要它，请将其配置为你终端模拟器的字体。
 
 ## 安装
@@ -62,6 +62,12 @@ call dein#add('kkkkkHuang/simple-tree.nvim')
 
 `:TreeToggle` 打开或关闭目录树
 
+你也可以绑定到一个快捷键，比如 `<Leader>b`
+
+```lua
+vim.api.nvim_set_keymap('n', '<Leader>b', '<Cmd>TreeToggle<CR>', { noremap = true })
+```
+
 ### 快捷键
 
 | 键           | 描述                                 |
@@ -97,6 +103,10 @@ require("simple-tree").setup {
   -- 你可以自定义文件夹图标
   folder_icons='',
   folder_open_icons='',
+
+  -- 启用 git 状态显示
+  enable_git_status=true
+
 }
 ```
 
