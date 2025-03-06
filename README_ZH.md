@@ -13,7 +13,7 @@
 
 ## 要求
 
-- 此插件仅在 Neovim 0.7 或更高版本中工作。
+- 此插件仅在 Neovim 0.8 或更高版本中工作。
 - [nerd 字体](https://www.nerdfonts.com/) 是可选的，用于显示文件图标。如果你需要它，请将其配置为你终端模拟器的字体。
 
 ## 安装
@@ -43,18 +43,6 @@ lua require("simple-tree").setup()
 Plugin 'kkkkkHuang/simple-tree.nvim'
 ```
 
-使用 [`vim-pathogen`](https://github.com/tpope/vim-pathogen):
-
-```shell
-cd ~/.vim/bundle && \
-git clone https://github.com/kkkkkHuang/simple-tree.nvim
-```
-
-使用 [`dein.vim`](https://github.com/Shougo/dein.vim):
-
-```vim
-call dein#add('kkkkkHuang/simple-tree.nvim')
-```
 
 ## 使用
 

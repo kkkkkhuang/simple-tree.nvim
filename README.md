@@ -44,18 +44,6 @@ With [`Vundle.vim`](https://github.com/VundleVim/Vundle.vim):
 Plugin 'kkkkkHuang/simple-tree.nvim'
 ```
 
-With [`vim-pathogen`](https://github.com/tpope/vim-pathogen):
-
-```shell
-cd ~/.vim/bundle && \
-git clone https://github.com/kkkkkHuang/simple-tree.nvim
-```
-
-With [`dein.vim`](https://github.com/Shougo/dein.vim):
-
-```vim
-call dein#add('kkkkkHuang/simple-tree.nvim')
-```
 
 ## Usage
 
